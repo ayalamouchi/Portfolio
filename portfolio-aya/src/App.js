@@ -326,8 +326,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-     // CONTINUATION DU CODE À PARTIR DE LA SECTION CERTIFICATIONS
-
+    
       <section id="certifications" className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
