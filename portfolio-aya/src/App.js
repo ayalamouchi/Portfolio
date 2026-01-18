@@ -29,6 +29,13 @@ const Portfolio = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [cursorVariant, setCursorVariant] = useState("default");
   const [language, setLanguage] = useState("fr");
+  const [iconRotation, setIconRotation] = useState(0); // ✅ ICI
+  useEffect(() => {
+  const interval = setInterval(() => {
+    setIconRotation(prev => (prev + 0.5) % 360);
+  }, 50); 
+  return () => clearInterval(interval);
+}, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -197,20 +204,65 @@ const Portfolio = () => {
             </div>
           </div>
           <div className="flex justify-center animate-slideInRight">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-600 rounded-3xl blur-3xl opacity-30 animate-pulse" />
-              <div className="relative w-80 h-80 rounded-3xl overflow-hidden border-4 border-pink-500/30 shadow-2xl shadow-pink-500/50 backdrop-blur-sm bg-gradient-to-br from-gray-800/50 to-gray-900/50">
+            <div className="relative w-[500px] h-[500px]">
+              {/* Background Glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full blur-3xl opacity-20 animate-pulse" />
+              
+              {/* Main Circle Background */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl border border-pink-500/30"></div>
+              
+              {/* Orbiting Tech Icons */}
+              {[
+                // Figma
+                { svg: <svg viewBox="0 0 38 57" fill="none" className="w-8 h-8"><path d="M19 28.5C19 23.26 23.26 19 28.5 19C33.74 19 38 23.26 38 28.5C38 33.74 33.74 38 28.5 38C23.26 38 19 33.74 19 28.5Z" fill="#1ABCFE"/><path d="M0 47.5C0 42.26 4.26 38 9.5 38H19V47.5C19 52.74 14.74 57 9.5 57C4.26 57 0 52.74 0 47.5Z" fill="#0ACF83"/><path d="M0 28.5C0 23.26 4.26 19 9.5 19H19V38H9.5C4.26 38 0 33.74 0 28.5Z" fill="#FF7262"/><path d="M0 9.5C0 4.26 4.26 0 9.5 0H19V19H9.5C4.26 19 0 14.74 0 9.5Z" fill="#F24E1E"/><path d="M19 0H28.5C33.74 0 38 4.26 38 9.5C38 14.74 33.74 19 28.5 19H19V0Z" fill="#A259FF"/></svg>, baseAngle: 0 },
+                // Flutter
+                { svg: <svg viewBox="0 0 32 32" className="w-8 h-8"><path d="M18.8 2.5L4.1 17.2l4.3 4.3 18.8-18.8L18.8 2.5z" fill="#42A5F5"/><path d="M22.9 11.5L9.1 25.3l4.3 4.3 13.7-13.7-4.2-4.4z" fill="#0D47A1"/><path d="M18.6 20.4l4.3 4.3-4.3 4.3-4.3-4.3z" fill="#42A5F5"/></svg>, baseAngle: 45 },
+                // Kotlin
+                { svg: <svg viewBox="0 0 32 32" className="w-8 h-8"><defs><linearGradient id="kotlinGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#E44857"/><stop offset="100%" stopColor="#C711E1"/></linearGradient></defs><path d="M0 32L16 16L0 0z" fill="url(#kotlinGrad)"/><path d="M16 0L32 0L16 16z" fill="url(#kotlinGrad)"/><path d="M16 16L32 32L0 32z" fill="url(#kotlinGrad)"/></svg>, baseAngle: 90 },
+                // Angular
+                { svg: <svg viewBox="0 0 32 32" className="w-8 h-8"><path d="M16 2L3 7l2 17.5L16 30l11-5.5L29 7z" fill="#DD0031"/><path d="M16 2v28l11-5.5L29 7z" fill="#C3002F"/><path d="M16 5.5L9.5 20h3l1.3-3.5h6.4L21.5 20h3L16 5.5zm0 4.7l2.4 5.8h-4.8z" fill="#FFF"/></svg>, baseAngle: 135 },
+                // Spring Boot
+                { svg: <svg viewBox="0 0 32 32" className="w-8 h-8"><circle cx="16" cy="16" r="14" fill="#6DB33F"/><path d="M24.8 11.5c-1.4-2.4-4-4-6.9-4-2.8 0-5.3 1.5-6.7 3.7.3-.1.7-.1 1-.1 1.6 0 3 .8 3.9 2 .1.2.3.4.4.6.3.5.5 1 .6 1.6 0 .2.1.4.1.6v.2c0 2.2-1.8 4-4 4-.4 0-.8-.1-1.2-.2-1-.3-1.9-.9-2.5-1.7-.2-.2-.3-.5-.5-.8-.1-.2-.2-.4-.3-.6-.3-.8-.5-1.6-.5-2.5 0-.4 0-.8.1-1.2-1.6 1.8-2.6 4.1-2.6 6.7 0 5.5 4.5 10 10 10s10-4.5 10-10c0-2.9-1.2-5.5-3.2-7.3zm-7.3 12.3c-3.2-.3-5.7-3-5.7-6.3 0-.4 0-.8.1-1.2.3 0 .6.1.9.1 3.1 0 5.7-2.3 6.1-5.3.3 0 .6-.1.9-.1 3.6 0 6.5 2.9 6.5 6.5 0 3.5-2.8 6.4-6.3 6.5-.5 0-1 0-1.5-.1-.3-.1-.6-.1-1-.1z" fill="#FFF"/></svg>, baseAngle: 180 },
+                // React
+                { svg: <svg viewBox="0 0 32 32" className="w-8 h-8"><circle cx="16" cy="16" r="2.5" fill="#61DAFB"/><path d="M16 11.5c4.7 0 8.5 1.8 8.5 4s-3.8 4-8.5 4-8.5-1.8-8.5-4 3.8-4 8.5-4m0-2c-5.5 0-10 2.5-10 5.5s4.5 5.5 10 5.5 10-2.5 10-5.5-4.5-5.5-10-5.5z" fill="#61DAFB"/><path d="M11.5 13.75c2.3-4.1 5.5-6.75 7.1-5.88 1.6.87 1.3 5.1-.9 9.13-2.3 4.1-5.5 6.75-7.1 5.88-1.6-.87-1.3-5.1.9-9.13m-1.1-1.87c-3 5.2-3.5 10.3-1.1 11.7 2.4 1.4 6.7-1.5 9.7-6.7 3-5.2 3.5-10.3 1.1-11.7-2.4-1.4-6.7 1.5-9.7 6.7z" fill="#61DAFB"/><path d="M11.5 18.25c-2.3-4.1-2.6-8.26-.9-9.13 1.6-.87 4.8 1.78 7.1 5.88 2.3 4.1 2.6 8.26.9 9.13-1.6.87-4.8-1.78-7.1-5.88m-1.1 1.87c3 5.2 7.3 8.1 9.7 6.7 2.4-1.4 1.9-6.5-1.1-11.7-3-5.2-7.3-8.1-9.7-6.7-2.4 1.4-1.9 6.5 1.1 11.7z" fill="#61DAFB"/></svg>, baseAngle: 225 },
+                // Laravel
+                { svg: <svg viewBox="0 0 32 32" className="w-8 h-8"><path d="M16 28L4 20V8l12-6 12 6v12L16 28z" fill="#FF2D20"/><path d="M16 2v26l12-8V8L16 2z" fill="#E74430"/><path d="M11 15.5l5 3 5-3V12l-5-3-5 3v3.5z" fill="#FFF"/></svg>, baseAngle: 270 },
+                // Python
+                { svg: <svg viewBox="0 0 32 32" className="w-8 h-8"><defs><linearGradient id="pyBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#387EB8"/><stop offset="100%" stopColor="#366994"/></linearGradient><linearGradient id="pyYellow" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#FFE873"/><stop offset="100%" stopColor="#FFC331"/></linearGradient></defs><path d="M15.9 2c-2.5 0-4.7.2-6.3.5C6.1 3.3 5 4.8 5 7.8v3.7h10.5v1.3H5c-2.8 0-5 1.7-5 5.7s1.8 5.5 5 5.5h3v-4.3c0-3.1 2.7-5.7 5.9-5.7h7c2.6 0 4.7-2.1 4.7-4.7V7.8c0-2.8-2.4-4.9-5.3-5.3-1.8-.3-3.6-.5-5.4-.5zm-1.1 2.9c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6-1.6-.7-1.6-1.6.7-1.6 1.6-1.6z" fill="url(#pyBlue)"/><path d="M16.1 30c2.5 0 4.7-.2 6.3-.5 3.5-.8 4.6-2.3 4.6-5.3v-3.7H16.5v-1.3H27c2.8 0 5-1.7 5-5.7s-1.8-5.5-5-5.5h-3v4.3c0 3.1-2.7 5.7-5.9 5.7h-7c-2.6 0-4.7 2.1-4.7 4.7v4.5c0 2.8 2.4 4.9 5.3 5.3 1.8.3 3.6.5 5.4.5zm1.1-2.9c-.9 0-1.6-.7-1.6-1.6s.7-1.6 1.6-1.6 1.6.7 1.6 1.6-.7 1.6-1.6 1.6z" fill="url(#pyYellow)"/></svg>, baseAngle: 315 },
+              ].map((item, idx) => {
+                const radius = 180;
+  const currentAngle = (item.baseAngle + iconRotation) * (Math.PI / 180); // ✅ ICI
+  const x = 250 + radius * Math.cos(currentAngle); // ✅ ICI
+  const y = 250 + radius * Math.sin(currentAngle); // ✅ ICI
+                
+                return (
+                  <div
+                    key={idx}
+                    className="absolute w-16 h-16 bg-gray-800/90 backdrop-blur-md rounded-2xl border-2 border-pink-500/30 flex items-center justify-center shadow-xl shadow-pink-500/20 hover:scale-110 hover:border-pink-500/60 hover:shadow-pink-500/40 transition-all"
+                    style={{
+                      left: `${x}px`,
+                      top: `${y}px`,
+                      transform: 'translate(-50%, -50%)',
+                      transition: 'left 0.05s linear, top 0.05s linear'
+                    }}
+                  >
+                    {item.svg}
+                  </div>
+                );
+              })}
+
+              {/* Center Photo */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full overflow-hidden border-4 border-pink-500/60 shadow-2xl shadow-pink-500/50 bg-white z-10">
                 <img 
                   src="/aya-photo.jpg" 
                   alt="Aya Lamouchi" 
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-9xl font-bold bg-gradient-to-br from-pink-400 to-purple-400 bg-clip-text text-transparent">AL</div>';
+                    e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-7xl font-bold bg-gradient-to-br from-pink-400 to-purple-400 bg-clip-text text-transparent">AL</div>';
                   }}
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl blur-2xl opacity-50 animate-pulse" />
             </div>
           </div>
         </div>
