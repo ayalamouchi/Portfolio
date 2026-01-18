@@ -558,28 +558,46 @@ const Portfolio = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: language === "fr" ? "Challenge SITE2025 - Gagnante" : "SITE2025 Challenge - Winner", issuer: "ISET Bizerte", date: "Sept 2025" },
-              { title: language === "fr" ? "Attestation Bus Game Simulator" : "Bus Game Simulator Project", issuer: "ISET Bizerte", date: "Oct 2025" },
-              { title: language === "fr" ? "Certificat EF SET B2" : "EF SET B2 Certificate", issuer: "EF Standard English Test", date: "2024" },
-              { title: language === "fr" ? "Participation IEEE Xtreme 18.0" : "IEEE Xtreme 18.0 Participant", issuer: "IEEE", date: "2024" },
-              { title: language === "fr" ? "Vice-Présidente CS Chapter" : "Vice President CS Chapter", issuer: "IEEE ISET Bizerte", date: "2024-2025" },
-              { title: language === "fr" ? "Membre Active IEEE" : "Active IEEE Member", issuer: "IEEE ISET Bizerte", date: "2023-Present" },
+              { title: language === "fr" ? "Challenge SITE2025 - Gagnante" : "SITE2025 Challenge - Winner", issuer: "ISET Bizerte", date: "Sept 2025", image: "/cert-site2025.jpg" },
+              { title: language === "fr" ? "Attestation Bus Game Simulator" : "Bus Game Simulator Project", issuer: "ISET Bizerte", date: "Oct 2025", image: "/mini projet.jpg" },
+              { title: language === "fr" ? "Certificat EF SET B2" : "EF SET B2 Certificate", issuer: "EF Standard English Test", date: "2024", image: "/cert-efset.png" },
+              { title: language === "fr" ? "Participation IEEE Xtreme 18.0" : "IEEE Xtreme 18.0 Participant", issuer: "IEEE", date: "2024", image: "/cert-ieee-xtreme.png" },
+              { title: language === "fr" ? "Vice-Présidente CS Chapter" : "Vice President CS Chapter", issuer: "IEEE ISET Bizerte", date: "2024-2025", image: "/cert-ieee-vp.png" },
+              { title: language === "fr" ? "Membre Active IEEE" : "Active IEEE Member", issuer: "IEEE ISET Bizerte", date: "2023-Present", image: "/cert-ieee-member.png" },
             ].map((cert, idx) => (
               <div 
                 key={idx} 
-                className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-pink-500/20 hover:border-pink-500/50 transition-all hover:scale-105 backdrop-blur-sm" 
+                className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-pink-500/20 hover:border-pink-500/50 transition-all hover:scale-105 backdrop-blur-sm overflow-hidden cursor-pointer" 
                 onMouseEnter={() => setCursorVariant("hover")} 
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gradient-to-br from-pink-500/20 to-purple-600/20 rounded-xl group-hover:rotate-12 transition-transform">
-                    <Award className="text-pink-400" size={28} />
+                {/* Image du certificat */}
+                <div className="relative h-48 bg-gradient-to-br from-purple-900/30 to-pink-900/30 overflow-hidden">
+                  {cert.image ? (
+                    <img 
+                      src={cert.image} 
+                      alt={cert.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextElementSibling.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div className={`absolute inset-0 ${cert.image ? 'hidden' : 'flex'} items-center justify-center`}>
+                    <div className="p-4 bg-gradient-to-br from-pink-500/20 to-purple-600/20 rounded-xl">
+                      <Award className="text-pink-400" size={48} />
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-white mb-2">{cert.title}</h3>
-                    <p className="text-gray-400 text-sm mb-1">{cert.issuer}</p>
-                    <p className="text-pink-400 text-xs font-semibold">{cert.date}</p>
-                  </div>
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60" />
+                </div>
+                
+                {/* Informations du certificat */}
+                <div className="p-6">
+                  <h3 className="font-bold text-white mb-2 text-lg">{cert.title}</h3>
+                  <p className="text-gray-400 text-sm mb-1">{cert.issuer}</p>
+                  <p className="text-pink-400 text-xs font-semibold">{cert.date}</p>
                 </div>
               </div>
             ))}
