@@ -461,19 +461,86 @@ const Portfolio = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { category: language === "fr" ? "Langages" : "Languages", icon: Code, skills: ["C", "Java", "PHP", "Python", "JavaScript", "TypeScript", "Kotlin", "Dart"] },
-              { category: "Frameworks", icon: Zap, skills: ["Angular", "Vue.js", "Laravel", "Spring Boot", "Flutter", "React"] },
-              { category: language === "fr" ? "Bases de Données" : "Databases", icon: Database, skills: ["MongoDB", "MySQL", "SQL"] },
-              { category: "UI/UX Design", icon: Palette, skills: ["Figma", "Adobe XD", "Tailwind CSS", "Bootstrap"] },
-              { category: language === "fr" ? "Outils" : "Tools", icon: Globe, skills: ["Git", "GitHub", "VS Code", "IntelliJ IDEA", "Postman"] },
-              { category: language === "fr" ? "Langues" : "Languages", icon: Users, skills: [language === "fr" ? "Arabe (Natif)" : "Arabic (Native)", language === "fr" ? "Français (Maîtrise)" : "French (Fluent)", language === "fr" ? "Anglais (B2)" : "English (B2)", language === "fr" ? "Espagnol (Élémentaire)" : "Spanish (Elementary)"] },
+              { 
+                category: language === "fr" ? "Langages" : "Languages", 
+                icon: Code, 
+                skills: [
+                  { name: "C", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M16 2C8.3 2 2 8.3 2 16s6.3 14 14 14 14-6.3 14-14S23.7 2 16 2zm0 25.3c-6.2 0-11.3-5-11.3-11.3S9.8 4.7 16 4.7 27.3 9.8 27.3 16 22.2 27.3 16 27.3z" fill="#A8B9CC"/><path d="M19.4 13.8h2.3v1.5h-2.3v2.3h-1.5v-2.3h-2.3v-1.5h2.3v-2.3h1.5v2.3z" fill="#A8B9CC"/></svg> },
+                  { name: "Java", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M11.6 24.8s-1.1.6.8.8c2.3.3 3.5.2 6-.3 0 0 .7.4 1.6.8-5.7 2.4-13-.1-8.4-1.3z" fill="#E76F00"/><path d="M11 21.5s-1.2.9.7 1.1c2.5.3 4.5.3 7.9-.4 0 0 .5.5 1.2.7-6.9 2-14.6.2-9.8-1.4z" fill="#E76F00"/><path d="M15.4 16.7c1.4 1.6-0.4 3-0.4 3s3.5-1.8 1.9-4.1c-1.5-2.1-2.6-3.1 3.5-6.6 0 0-9.6 2.4-5 7.7z" fill="#E76F00"/></svg> },
+                  { name: "PHP", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><ellipse cx="16" cy="16" rx="14" ry="7.5" fill="#8892BF"/><path d="M8 13h2.5c1.7 0 2.5.8 2.5 2s-.8 2-2.5 2H9v2H8v-6zm1 3h1.5c.8 0 1.5-.3 1.5-1s-.7-1-1.5-1H9v2zm7-3h2.5c1.7 0 2.5.8 2.5 2v4h-1v-1.5h-3V19h-1v-6zm1 3.5h2.5V15c0-.7-.7-1-1.5-1H17v2.5zm7-3.5h1v2.5h2.5V13h1v6h-1v-2.5H24V19h-1v-6z" fill="#fff"/></svg> },
+                  { name: "Python", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><defs><linearGradient id="pyBlue2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#387EB8"/><stop offset="100%" stopColor="#366994"/></linearGradient><linearGradient id="pyYellow2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#FFE873"/><stop offset="100%" stopColor="#FFC331"/></linearGradient></defs><path d="M15.9 4c-1.7 0-3.2.1-4.3.4C9.8 4.9 9 5.9 9 7.8v2.5h7v.9H9c-1.9 0-3.4 1.1-3.4 3.8s1.2 3.7 3.4 3.7h2v-2.9c0-2.1 1.8-3.8 4-3.8h4.7c1.8 0 3.2-1.4 3.2-3.1V7.8c0-1.9-1.6-3.3-3.6-3.6-1.2-.2-2.4-.3-3.6-.3zm-.7 2c.6 0 1.1.5 1.1 1.1s-.5 1.1-1.1 1.1-1.1-.5-1.1-1.1.5-1.1 1.1-1.1z" fill="url(#pyBlue2)"/><path d="M16.1 28c1.7 0 3.2-.1 4.3-.4 1.8-.5 2.6-1.5 2.6-3.4v-2.5h-7v-.9h7c1.9 0 3.4-1.1 3.4-3.8s-1.2-3.7-3.4-3.7h-2v2.9c0 2.1-1.8 3.8-4 3.8h-4.7c-1.8 0-3.2 1.4-3.2 3.1v3c0 1.9 1.6 3.3 3.6 3.6 1.2.2 2.4.3 3.6.3zm.7-2c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1 1.1.5 1.1 1.1-.5 1.1-1.1 1.1z" fill="url(#pyYellow2)"/></svg> },
+                  { name: "JavaScript", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><rect width="32" height="32" rx="4" fill="#F7DF1E"/><path d="M18.5 20.5c.6 1 1.4 1.7 2.8 1.7 1.2 0 1.9-.6 1.9-1.4 0-1-.8-1.3-2-1.9l-.7-.3c-2.2-.9-3.6-2.1-3.6-4.5 0-2.2 1.7-3.9 4.4-3.9 1.9 0 3.3.7 4.3 2.4l-2.3 1.5c-.5-.9-1.1-1.3-2-1.3s-1.5.6-1.5 1.3c0 .9.6 1.3 1.9 1.8l.7.3c2.6 1.1 4 2.2 4 4.7 0 2.7-2.1 4.1-5 4.1-2.8 0-4.6-1.3-5.5-3.1l2.4-1.4zm-9.2.1c.4.8 .8 1.4 1.8 1.4.9 0 1.5-.4 1.5-1.8v-9.8h3v9.9c0 3-1.8 4.4-4.3 4.4-2.3 0-3.7-1.2-4.4-2.6l2.4-1.5z" fill="#000"/></svg> },
+                  { name: "TypeScript", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><rect width="32" height="32" rx="4" fill="#3178C6"/><path d="M18.5 10.5h7v1.8h-2.5v11.2h-2v-11.2h-2.5v-1.8zm-6 1.8v11.2h-2v-11.2H8v-1.8h7v1.8h-2.5z" fill="#fff"/></svg> },
+                  { name: "Kotlin", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><defs><linearGradient id="kotlinGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#E44857"/><stop offset="100%" stopColor="#C711E1"/></linearGradient></defs><path d="M4 28L16 16 4 4z" fill="url(#kotlinGrad2)"/><path d="M16 4h12L16 16z" fill="url(#kotlinGrad2)"/><path d="M16 16l12 12H4z" fill="url(#kotlinGrad2)"/></svg> },
+                  { name: "Dart", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M6 6l12-2v20L6 26z" fill="#00D2B8"/><path d="M18 4l8 8-8 8V4z" fill="#00A8E1"/><path d="M6 26l12-6-12-6v12z" fill="#00D2B8"/><path d="M18 20l8 8-8-2v-6z" fill="#00A8E1"/></svg> }
+                ]
+              },
+              { 
+                category: "Frameworks", 
+                icon: Zap, 
+                skills: [
+                  { name: "Angular", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M16 4L4 8l1.8 15.2L16 28l10.2-4.8L28 8z" fill="#DD0031"/><path d="M16 4v24l10.2-4.8L28 8z" fill="#C3002F"/><path d="M16 7l-5.5 12.5h2l1.1-2.8h4.8l1.1 2.8h2L16 7zm0 3.2l1.8 4.3h-3.6l1.8-4.3z" fill="#FFF"/></svg> },
+                  { name: "Vue.js", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M2 4l14 24L30 4h-5.5L16 18 7.5 4z" fill="#41B883"/><path d="M7.5 4L16 18 24.5 4h-4.8L16 11.5 12.3 4z" fill="#35495E"/></svg> },
+                  { name: "Laravel", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M16 26L6 20V10l10-6 10 6v10L16 26z" fill="#FF2D20"/><path d="M16 4v22l10-6V10L16 4z" fill="#E74430"/><path d="M12 14l4 2.5 4-2.5v-2.5l-4-2.5-4 2.5V14z" fill="#FFF"/></svg> },
+                  { name: "Spring Boot", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><circle cx="16" cy="16" r="12" fill="#6DB33F"/><path d="M22 12c-1.2-2-3.5-3.3-6-3.3-2.4 0-4.6 1.3-5.8 3.2.3-.1.6-.1.9-.1 1.4 0 2.6.7 3.4 1.7.1.2.3.4.4.5.3.4.4.9.5 1.4 0 .2.1.3.1.5v.2c0 1.9-1.5 3.5-3.5 3.5-.4 0-.7-.1-1-.2-.9-.3-1.6-.8-2.2-1.5-.2-.2-.3-.4-.4-.7-.1-.2-.2-.3-.3-.5-.2-.7-.4-1.4-.4-2.2 0-.3 0-.7.1-1-1.4 1.5-2.3 3.6-2.3 5.8 0 4.8 3.9 8.7 8.7 8.7s8.7-3.9 8.7-8.7c0-2.5-1-4.8-2.8-6.4zm-6.4 10.7c-2.8-.3-5-2.6-5-5.5 0-.3 0-.7.1-1 .3 0 .5.1.8.1 2.7 0 5-2 5.3-4.6.3 0 .5-.1.8-.1 3.1 0 5.7 2.5 5.7 5.7 0 3-2.5 5.6-5.5 5.7-.4 0-.9 0-1.3-.1-.3-.1-.6-.1-.9-.2z" fill="#FFF"/></svg> },
+                  { name: "Flutter", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M17 5L7 15l3.5 3.5L27 2z" fill="#42A5F5"/><path d="M20.5 10.5L10.5 20.5l3.5 3.5L24.5 13.5z" fill="#0D47A1"/><path d="M17 17.5l3.5 3.5-3.5 3.5-3.5-3.5z" fill="#42A5F5"/></svg> },
+                  { name: "React", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><circle cx="16" cy="16" r="2" fill="#61DAFB"/><path d="M16 12c4 0 7 1.5 7 3.5s-3 3.5-7 3.5-7-1.5-7-3.5 3-3.5 7-3.5m0-1.5c-4.7 0-8.5 2.2-8.5 5s3.8 5 8.5 5 8.5-2.2 8.5-5-3.8-5-8.5-5z" fill="#61DAFB"/><path d="M11.5 14c2-3.5 4.7-5.8 6.1-5 1.4.8 1.1 4.4-.8 8-2 3.5-4.7 5.8-6.1 5-1.4-.8-1.1-4.4.8-8m-1-1.6c-2.6 4.5-3 9-1 10.2 2.1 1.2 5.8-1.3 8.4-5.8 2.6-4.5 3-9 1-10.2-2.1-1.2-5.8 1.3-8.4 5.8z" fill="#61DAFB"/><path d="M11.5 18c-2-3.5-2.2-7.1-.8-8 1.4-.8 4.1 1.5 6.1 5 2 3.5 2.2 7.1.8 8-1.4.8-4.1-1.5-6.1-5m-1 1.6c2.6 4.5 6.3 7 8.4 5.8 2.1-1.2 1.6-5.7-1-10.2-2.6-4.5-6.3-7-8.4-5.8-2.1 1.2-1.6 5.7 1 10.2z" fill="#61DAFB"/></svg> }
+                ]
+              },
+              { 
+                category: language === "fr" ? "Bases de Données" : "Databases", 
+                icon: Database, 
+                skills: [
+                  { name: "MongoDB", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M16 4c-.3 0-.5.1-.7.2-2.5 1.3-8.3 6.2-8.3 13.1 0 3.9 1.5 6.4 3 7.9.8.8 1.7 1.3 2.7 1.6.3.1.5.2.8.2h4.9c.3 0 .6-.1.8-.2 1-.3 1.9-.8 2.7-1.6 1.5-1.5 3-4 3-7.9 0-6.9-5.8-11.8-8.3-13.1-.1-.1-.3-.2-.6-.2z" fill="#4DB33D"/><path d="M16 6c-.2 0-.3.1-.5.1-2 1.1-6.5 5.3-6.5 11.2 0 3.3 1.2 5.4 2.4 6.7.7.7 1.4 1.1 2.2 1.3.2.1.4.1.6.1h3.7c.2 0 .4 0 .6-.1.8-.2 1.5-.6 2.2-1.3 1.2-1.3 2.4-3.4 2.4-6.7 0-5.9-4.5-10.1-6.5-11.2-.2 0-.4-.1-.6-.1z" fill="#6CAC48"/><path d="M16 28v-3c-.3 0-.5-.1-.7-.2-.8-.3-1.5-.8-2.1-1.4-1.3-1.4-2.5-3.6-2.5-6.7 0-5.3 3.9-9.1 5.3-10.1v21.4z" fill="#C9E7C9"/></svg> },
+                  { name: "MySQL", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M8.7 23.3c-.4 0-.7-.1-1-.3-.5-.3-.7-.8-.5-1.4.2-.4.6-.7 1.1-.7h.3c.5.1.9.4 1 .9.1.5-.1 1-.5 1.3-.2.1-.4.2-.4.2zm14.8-.3c-.3.2-.7.3-1 .3-.2 0-.3-.1-.5-.2-.4-.3-.6-.8-.4-1.3.1-.5.5-.8 1-.9h.3c.5 0 .9.3 1.1.7.2.6 0 1.1-.5 1.4z" fill="#00758F"/><path d="M16 4C9.4 4 4 9.4 4 16s5.4 12 12 12 12-5.4 12-12S22.6 4 16 4zm0 21c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9z" fill="#00758F"/><path d="M16 8c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm-3.3 12.3c-.4 0-.7-.1-1-.3-.5-.3-.7-.8-.5-1.4.2-.4.6-.7 1.1-.7h.3c.5.1.9.4 1 .9.1.5-.1 1-.5 1.3-.2.1-.4.2-.4.2zm7.8 0c-.3.2-.7.3-1 .3-.2 0-.3-.1-.5-.2-.4-.3-.6-.8-.4-1.3.1-.5.5-.8 1-.9h.3c.5 0 .9.3 1.1.7.2.6 0 1.1-.5 1.4z" fill="#E48E00"/></svg> },
+                  { name: "SQL", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M16 8c-4.4 0-8 1.8-8 4v8c0 2.2 3.6 4 8 4s8-1.8 8-4v-8c0-2.2-3.6-4-8-4z" fill="#336791"/><ellipse cx="16" cy="12" rx="8" ry="4" fill="#5294CF"/><path d="M24 16c0 2.2-3.6 4-8 4s-8-1.8-8-4v-4c0 2.2 3.6 4 8 4s8-1.8 8-4v4z" fill="#477BB0"/></svg> }
+                ]
+              },
+              { 
+                category: "UI/UX Design", 
+                icon: Palette, 
+                skills: [
+                  { name: "Figma", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M12 28c2.2 0 4-1.8 4-4v-4H12c-2.2 0-4 1.8-4 4s1.8 4 4 4z" fill="#0ACF83"/><path d="M8 16c0-2.2 1.8-4 4-4h4v8H12c-2.2 0-4-1.8-4-4z" fill="#A259FF"/><path d="M8 8c0-2.2 1.8-4 4-4h4v8H12C9.8 12 8 10.2 8 8z" fill="#F24E1E"/><path d="M16 4h4c2.2 0 4 1.8 4 4s-1.8 4-4 4h-4V4z" fill="#FF7262"/><path d="M24 16c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4 4 1.8 4 4z" fill="#1ABCFE"/></svg> },
+                  { name: "Adobe XD", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><rect width="32" height="32" rx="4" fill="#FF61F6"/><path d="M10 10l3 6-3 6h2.5l1.8-3.8 1.8 3.8H19l-3-6 3-6h-2.5l-1.8 3.8L12.5 10H10zm12 0v12h2.3c1.8 0 2.7-1 2.7-2.5v-7c0-1.5-.9-2.5-2.7-2.5H22zm1.5 1.5h.8c.7 0 1.2.4 1.2 1v7c0 .6-.5 1-1.2 1h-.8v-9z" fill="#fff"/></svg> },
+                  { name: "Tailwind CSS", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M16 8c-2.7 0-4.3 1.3-5 4 1-1.3 2.2-1.8 3.5-1.5 .8.2 1.3.7 1.9 1.3.9.9 2 2 4.3 2 2.7 0 4.3-1.3 5-4-1 1.3-2.2 1.8-3.5 1.5-.8-.2-1.3-.7-1.9-1.3-.9-.9-2-2-4.3-2zm-5 8c-2.7 0-4.3 1.3-5 4 1-1.3 2.2-1.8 3.5-1.5.8.2 1.3.7 1.9 1.3.9.9 2 2 4.3 2 2.7 0 4.3-1.3 5-4-1 1.3-2.2 1.8-3.5 1.5-.8-.2-1.3-.7-1.9-1.3-.9-.9-2-2-4.3-2z" fill="#06B6D4"/></svg> },
+                  { name: "Bootstrap", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M6 4h20c1.1 0 2 .9 2 2v20c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="#7952B3"/><path d="M16.5 18c1.4 0 2.5-1.1 2.5-2.5S17.9 13 16.5 13H13v5h3.5zm-.5-7c1.4 0 2.5-1.1 2.5-2.5S17.4 6 16 6H11v16h5.5c2.5 0 4.5-2 4.5-4.5 0-1.9-1.2-3.5-3-4.1.7-.6 1-1.5 1-2.4 0-1.9-1.6-3.5-3.5-3.5H13v5h3z" fill="#fff"/></svg> }
+                ]
+              },
+              { 
+                category: language === "fr" ? "Outils" : "Tools", 
+                icon: Globe, 
+                skills: [
+                  { name: "Git", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M30.6 14.4L17.6 1.4c-.8-.8-2-.8-2.8 0L12.2 4l3.5 3.5c.8-.3 1.8-.1 2.5.6.7.7.9 1.7.6 2.5l3.4 3.4c.8-.3 1.8-.1 2.5.6 1 1 1 2.6 0 3.5-1 1-2.6 1-3.5 0-.7-.7-.9-1.8-.6-2.7l-3.2-3.2v8.4c.2.1.5.3.7.5 1 1 1 2.6 0 3.5-1 1-2.6 1-3.5 0-1-1-1-2.6 0-3.5.2-.2.5-.4.8-.5v-8.5c-.3-.1-.5-.3-.8-.5-1-1-1-2.6-.1-3.7L10.2 4 1.4 12.8c-.8.8-.8 2 0 2.8l13 13c.8.8 2 .8 2.8 0l12.9-12.9c.9-.8.9-2.1.1-2.9z" fill="#F05032"/></svg> },
+                  { name: "GitHub", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M16 2C8.3 2 2 8.3 2 16c0 6.2 4 11.4 9.6 13.3.7.1 1-.3 1-.7v-2.4c-3.9.9-4.7-1.9-4.7-1.9-.6-1.6-1.5-2-1.5-2-1.2-.8.1-.8.1-.8 1.4.1 2.1 1.4 2.1 1.4 1.2 2.1 3.2 1.5 4 1.1.1-.9.5-1.5.9-1.8-3-.3-6.1-1.5-6.1-6.7 0-1.5.5-2.7 1.4-3.7-.1-.3-.6-1.7.1-3.5 0 0 1.1-.4 3.7 1.4 1.1-.3 2.2-.5 3.4-.5 1.1 0 2.3.2 3.4.5 2.5-1.8 3.7-1.4 3.7-1.4.8 1.8.3 3.2.1 3.5.9 1 1.4 2.2 1.4 3.7 0 5.2-3.2 6.4-6.2 6.7.5.4.9 1.2.9 2.5v3.7c0 .4.3.8 1 .7C26 27.4 30 22.2 30 16c0-7.7-6.3-14-14-14z" fill="#fff"/></svg> },
+                  { name: "VS Code", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M23.8 3.4l-17 11.8L2.5 11 .8 12.8l4.5 3.2-4.5 3.2 1.7 1.8 4.3-4.2 17 11.8 7.2-2.7V6.1l-7.2-2.7zm4.7 4.8v15.6l-12.8-7.8 12.8-7.8z" fill="#007ACC"/></svg> },
+                  { name: "IntelliJ IDEA", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><rect width="32" height="32" fill="#000"/><path d="M8 8h5v2H8V8zm0 4h5v2H8v-2zm0 4h5v2H8v-2z" fill="#fff"/><rect x="8" y="20" width="16" height="4" fill="#fff"/></svg> },
+                  { name: "Postman", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><path d="M28 8.6c0-.7-.5-1.3-1.2-1.5l-11-3.8c-.5-.2-1.1-.2-1.6 0l-11 3.8c-.7.2-1.2.8-1.2 1.5v14.8c0 .7.5 1.3 1.2 1.5l11 3.8c.5.2 1.1.2 1.6 0l11-3.8c.7-.2 1.2-.8 1.2-1.5V8.6z" fill="#FF6C37"/><path d="M16 12l-5 3 5 3 5-3-5-3z" fill="#fff"/></svg> }
+                ]
+              },
+              { 
+                category: language === "fr" ? "Langues" : "Languages", 
+                icon: Users, 
+                skills: [
+                  { name: language === "fr" ? "Arabe (Natif)" : "Arabic (Native)", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><rect width="32" height="32" rx="2" fill="#007A3D"/><rect y="21.3" width="32" height="10.7" fill="#CE1126"/><rect y="10.7" width="32" height="10.6" fill="#fff"/><path d="M13 16c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4-4-1.8-4-4zm1 0c0 1.7 1.3 3 3 3s3-1.3 3-3-1.3-3-3-3-3 1.3-3 3z" fill="#CE1126"/><path d="M18.5 16l2 1.5-0.8-2.5 2-1.5h-2.5l-0.7-2.5-0.7 2.5h-2.5l2 1.5-0.8 2.5z" fill="#CE1126"/></svg> },
+                  { name: language === "fr" ? "Français (Maîtrise)" : "French (Fluent)", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><rect width="10.7" height="32" fill="#002395"/><rect x="10.7" width="10.6" height="32" fill="#fff"/><rect x="21.3" width="10.7" height="32" fill="#ED2939"/></svg> },
+                  { name: language === "fr" ? "Anglais (B2)" : "English (B2)", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><rect width="32" height="32" fill="#012169"/><path d="M0 0l32 19.2V0H0zm0 32l32-19.2V32H0z" fill="#fff"/><path d="M13.3 19.2L0 28.8v3.2l18.7-11.2V19.2h-5.4zM18.7 12.8L32 3.2V0L13.3 11.2v1.6h5.4z" fill="#C8102E"/><path d="M32 11.2L18.7 19.2h5.4L32 28.8V32l-18.7-11.2V19.2L0 28.8v3.2l32-19.2z" fill="#fff"/><path d="M0 19.2l13.3 8L18.7 32H32L18.7 19.2h-5.4L0 11.2z" fill="#C8102E"/><rect y="12" width="32" height="8" fill="#fff"/><rect y="13.3" width="32" height="5.4" fill="#C8102E"/><rect x="12" width="8" height="32" fill="#fff"/><rect x="13.3" width="5.4" height="32" fill="#C8102E"/></svg> },
+                  { name: language === "fr" ? "Espagnol (Élémentaire)" : "Spanish (Elementary)", icon: <svg viewBox="0 0 32 32" className="w-5 h-5"><rect width="32" height="32" fill="#AA151B"/><rect y="8" width="32" height="16" fill="#F1BF00"/><rect y="12" width="32" height="8" fill="#AA151B"/></svg> }
+                ]
+              },
             ].map((group, idx) => (
               <div key={idx} className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-pink-500/20 hover:border-pink-500/50 transition-all hover:scale-105 backdrop-blur-sm" onMouseEnter={() => setCursorVariant("hover")} onMouseLeave={() => setCursorVariant("default")}>
                 <div className="flex items-center gap-3 mb-4">
                   <group.icon className="text-pink-400 group-hover:scale-110 transition-transform" size={24} />
                   <h3 className="text-xl font-bold text-white">{group.category}</h3>
                 </div>
-                <div className="flex flex-wrap gap-2">{group.skills.map((skill, i) => (<span key={i} className="px-3 py-2 bg-gradient-to-r from-pink-500/20 to-purple-600/20 text-pink-200 rounded-lg text-sm font-semibold border border-pink-500/30 hover:border-pink-500/50 transition-all">{skill}</span>))}</div>
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map((skill, i) => (
+                    <span key={i} className="px-3 py-2 bg-gradient-to-r from-pink-500/20 to-purple-600/20 text-pink-200 rounded-lg text-sm font-semibold border border-pink-500/30 hover:border-pink-500/50 transition-all flex items-center gap-2">
+                      {typeof skill === 'object' && skill.icon && <span className="inline-block">{skill.icon}</span>}
+                      {typeof skill === 'object' ? skill.name : skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
