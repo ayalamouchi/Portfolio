@@ -330,21 +330,123 @@ const Portfolio = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "HealthyfiTN", period: "Oct 2025 - Dec 2025", description: language === "fr" ? "Solution de santé numérique complète avec app mobile Kotlin et plateforme web Angular. Système de rendez-vous médicaux, surveillance santé continue, modèle IA pour analyse nutritionnelle, avatar 3D et chatbot Gemini." : "Complete digital healthcare solution with Kotlin mobile app and Angular web platform. Medical appointment system, continuous health monitoring, AI nutritional analysis, 3D avatar and Gemini chatbot.", tech: ["Angular", "Spring Boot", "Kotlin", "Python", "Flask"], icon: Zap },
-              { title: "Smart-Learn", period: "Nov 2025 - Dec 2025", description: language === "fr" ? "Plateforme éducative révolutionnaire combinant quiz interactifs, contenu YouTube et personnalisation IA. Évaluations automatiques, parcours adaptatifs et progression gamifiée." : "Revolutionary educational platform combining interactive quizzes, YouTube content and AI personalization. Automatic assessments, adaptive paths and gamified progress.", tech: ["Flutter", "Spring Boot", "MySQL", "Gemini API"], icon: Sparkles },
-              { title: "SITE Conference", period: "June 2025", description: language === "fr" ? "Plateforme web pour l'événement SITE Conference. Aperçu des éditions, inscription et paiement en ligne, notifications email, badges numériques et génération de certificats." : "Web platform for SITE Conference event. Edition overview, online registration and payment, email notifications, digital badges and certificate generation.", tech: ["TypeScript", "Laravel", "MySQL"], icon: Globe },
-              { title: "Mazroub", period: "2025", description: language === "fr" ? "Application web full-stack de gestion de transport en Tunisie. Gestion des rôles utilisateur/chauffeur/admin, réservation et suivi des trajets." : "Full-stack transport management web application in Tunisia. User/driver/admin role management, booking and trip tracking.", tech: ["Laravel", "Spring Boot", "Vue.js", "MongoDB"], icon: Users },
-              { title: "BusGameSimulator", period: "Feb 2024 - Apr 2025", description: language === "fr" ? "Système de simulation en C modélisant les transports publics urbains en mode graphique avec SDL1.2. Simulation de bus, zones et lignes de transport." : "C-based simulation system modeling urban public transportation in graphics mode with SDL1.2. Bus, zone and transport line simulation.", tech: ["C", "SDL1.2"], icon: Database },
-              { title: "Codeforces", period: language === "fr" ? "Mai 2024 - présent" : "May 2024 - present", description: language === "fr" ? "Participation active à la programmation compétitive sur Codeforces, pratiquant algorithmes et structures de données à travers divers défis." : "Active participation in competitive programming on Codeforces, practicing algorithms and data structures through various challenges.", tech: ["Algorithms", "Problem Solving"], icon: Code },
+              { 
+                title: "HealthyfiTN", 
+                subtitle: language === "fr" ? "Application de santé mobile" : "Mobile health app",
+                description: language === "fr" ? "Clean and simple blogging platform with markdown support" : "Clean and simple blogging platform with markdown support", 
+                tech: ["HTML", "Tailwind", "JavaScript"], 
+                image: "/health.png",
+                githubLink: "https://github.com/rayenbenzid1/VIRTUAL-DOCTOR-ANGULAR",
+                demoLink: "#"
+              },
+              { 
+                title: "Smart-Learn", 
+                subtitle: language === "fr" ? "Plateforme éducative" : "Educational platform",
+                description: language === "fr" ? "Landing page for a game with animations and parallax effects" : "Landing page for a game with animations and parallax effects", 
+                tech: ["HTML", "CSS", "GSAP"], 
+                image: "/project2.png",
+                githubLink: "https://github.com/AmineAdded/Smart-Learn",
+                demoLink: "#"
+              },
+              { 
+                title: "SITE Conference", 
+                subtitle: language === "fr" ? "Gestion d'événements" : "Event management",
+                description: language === "fr" ? "Task tracking web app with CRUD features and clean UI" : "Task tracking web app with CRUD features and clean UI", 
+                tech: ["HTML", "CSS", "API"], 
+                image: "/conference.png",
+                githubLink: "https://github.com/AmineAdded/SITE_Conference.git",
+                demoLink: "#"
+              },
+              { 
+                title: "Mazroub", 
+                subtitle: language === "fr" ? "Gestion de transport" : "Transport management",
+                description: language === "fr" ? "Landing page for a game with animations and parallax effects" : "Landing page for a game with animations and parallax effects", 
+                tech: ["Laravel", "Spring Boot", "Vue.js"], 
+                image: "/project.png",
+                githubLink: "#",
+                demoLink: "#"
+              },
+              { 
+                title: "BusGameSimulator", 
+                subtitle: language === "fr" ? "Simulation de transport" : "Transport simulation",
+                description: language === "fr" ? "Task tracking web app with CRUD features and clean UI" : "Task tracking web app with CRUD features and clean UI", 
+                tech: ["C", "SDL1.2"], 
+                image: "/project3.png",
+                githubLink: "#",
+                demoLink: "https://youtu.be/YNaWm81Q88c?si=n4YmmN014vV1Eiba"
+              },
+              { 
+                title: "Codeforces", 
+                subtitle: language === "fr" ? "Programmation compétitive" : "Competitive programming",
+                description: language === "fr" ? "Clean and simple blogging platform with markdown support" : "Clean and simple blogging platform with markdown support", 
+                tech: ["Algorithms", "Problem Solving"], 
+                image: "/project1.png",
+                githubLink: "#",
+                demoLink: "#"
+              },
             ].map((project, idx) => (
-              <div key={idx} className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-pink-500/20 hover:border-pink-500/50 transition-all hover:scale-105 backdrop-blur-sm" onMouseEnter={() => setCursorVariant("hover")} onMouseLeave={() => setCursorVariant("default")}>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-gradient-to-br from-pink-500/20 to-purple-600/20 rounded-xl group-hover:scale-110 transition-transform"><project.icon className="text-pink-400" size={24} /></div>
-                  <h3 className="text-xl font-bold text-white">{project.title}</h3>
+              <div key={idx} className="group relative bg-[#1a0b2e] rounded-3xl overflow-hidden border border-pink-500/20 hover:border-pink-500/50 transition-all hover:scale-105" onMouseEnter={() => setCursorVariant("hover")} onMouseLeave={() => setCursorVariant("default")}>
+                {/* Project Image */}
+                <div className="relative h-52 bg-gradient-to-br from-purple-900/30 to-pink-900/30 overflow-hidden">
+                  {project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextElementSibling.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div className={`absolute inset-0 ${project.image ? 'hidden' : 'flex'} items-center justify-center`}>
+                    <div className="w-40 h-40 rounded-2xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 border border-pink-500/30 flex items-center justify-center">
+                      <Code size={48} className="text-pink-400" />
+                    </div>
+                  </div>
+                  {/* Hover Cursor Effect */}
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ArrowUpRight size={24} className="text-pink-400" />
+                  </div>
                 </div>
-                <p className="text-sm text-pink-400 font-semibold mb-3">{project.period}</p>
-                <p className="text-gray-300 text-sm mb-4 line-clamp-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">{project.tech.map((tech, i) => (<span key={i} className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-semibold border border-purple-500/30">{tech}</span>))}</div>
+
+                {/* Project Info */}
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-white mb-1">{project.title}</h3>
+                  <p className="text-gray-400 text-sm mb-4">{project.subtitle}</p>
+                  <p className="text-gray-300 text-sm mb-4 line-clamp-2">{project.description}</p>
+                  
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech, i) => (
+                      <span key={i} className="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs font-medium border border-pink-500/20">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-3">
+                    <a 
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 rounded-xl text-white text-sm font-semibold transition-all flex items-center justify-center gap-2"
+                    >
+                      <Github size={16} />
+                      GitHub
+                    </a>
+                    <a 
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2 bg-pink-500/10 hover:bg-pink-500/20 border border-pink-500/30 rounded-xl text-pink-300 text-sm font-semibold transition-all flex items-center justify-center gap-2"
+                    >
+                      <ArrowUpRight size={16} />
+                      {language === "fr" ? "Démo" : "Live Demo"}
+                    </a>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
